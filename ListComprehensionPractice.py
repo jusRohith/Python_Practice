@@ -45,9 +45,41 @@
 # print([(i, j) for i in list_a for j in list_b if i == j])
 #!way2
 # print([(i, i) for i in list_a if i in list_b])
+# ? Question12:Make a variable named uppercased_fruits to hold the output of the list comprehension. Output should be ['MANGO', 'KIWI', etc...]
+# fruits = ["mango", "kiwi", "strawberry", "guava", "pineapple", "mandarin orange"]
+# print([fruit.upper() for fruit in fruits])
 
-# ? Question12:Given a sentence, return the setence will all it's letter transposed by 1 in the alphabet, but only if the letter is a-y.
+# ? Question13:create a variable named capitalized_fruits and use list comprehension syntax to produce output like ['Mango', 'Kiwi', 'Strawberry', etc...]
+# fruits = ["mango", "kiwi", "strawberry", "guava", "pineapple", "mandarin orange"]
+# print([fruit.capitalize() for fruit in fruits])
+# ? Question14:
+
+# ? Question15:
+# ? Question16:
+# ? Question1:Given a sentence, return the setence will all it's letter transposed by 1 in the alphabet, but only if the letter is a-y.
 # todo>>> encrypt_lol('the quick brown fox jumps over the lazy dog')
-# todo>>>'uif rvjdl cspxo gpy kvnqt pwfs uif mbzy eph'
+# todo>>>'uif rvjdl cspxo gpy kvnqt pwfs uif mbzz eph'
 sentnce = "the quick brown fox jumps over the lazy dog"
-print("".join([chr(ord(i) + 1) for i in sentnce if i not i.isspace()]))
+#! Using Normal for loop : Way1
+# for i in sentnce:
+#    print(
+#        "".join(chr(ord(i) + 1) if ord(i) in range(ord("a"), ord("z")) else i), end=""
+#    )
+# print()
+#! Using Normal for loop : Way2
+# l = []
+# for word in sentnce.split():
+#    newWord = ""
+#    for ltr in word:
+#        if ord(ltr) in range(ord("a"), ord("z")):
+#            newWord = newWord + chr(ord(ltr) + 1)
+#        else:
+#            newWord = newWord + ltr
+#    l.append(newWord)
+# print(" ".join(l))
+#! Using List Comprehension
+# print(
+#    "".join(
+#        chr(ord(i) + 1) if ord(i) in range(ord("a"), ord("z")) else i for i in sentnce
+#    )
+# )
