@@ -342,9 +342,44 @@ output = "AZBCDEF"
 # ? from collections import Counter as c
 # ? print(c(s1) == c(s2))
 
+
 # todo 15thQuestion: WAP to check whether the given string is Palindrome or not
 #! eye eye
 #! malayalam malayalam
 #! wow wow
 #! refer refer
 #! radar radar
+# ? def palindromeCheck(input: str) -> str:
+# ?     i = 0
+# ?     flag = True
+# ?     while i < len(input):
+# ?         if input[i] != input[-(i + 1)]:
+# ?             print(input[i], input[-(i + 1)])
+# ?             flag = False
+# ?             break
+# ?         else:
+# ?             print(input[i], input[-(i + 1)])
+# ?             i = i + 1
+# ?
+# ?     if flag == True:
+# ?         return "       ****!!!! Congratulations, Given Word is Palindrome !!!!****"
+# ?     else:
+# ?         return "#### Unlucky, word is not Palindrome ####"
+# ?
+# ?
+# ? print(palindromeCheck("malayalam"))
+
+# todo 16thQuestion: WAP to find duplicates in a list without using SET function
+l = [10, 20, 30, 10, 10, 30, 40, 50, 60, 30, 40, 50, 70, 10, 40, 50]
+#! Way1
+# ? result = []
+# ? for i in l:
+# ?     if i not in result:
+# ?         result.append(i)
+# ? print(result)
+# ? for i in result:
+# ?     print(i, l.count(i))
+#! Way2
+# ? d = dict.fromkeys(l)
+# ? result = d.keys()
+# ? print(list(result))
