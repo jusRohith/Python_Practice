@@ -1,0 +1,14 @@
+1.len()
+2.get(key) -> returns null if corresponding key not available
+3.get(key,value) -> if corresponding key not available in the dictionary then the value returns as default
+4.d1.update(d2)
+5.d.keys()
+6.d.values()
+7.d.items()
+8.d.fromKeys()
+9.d.pop()
+10.d.pop(Key,Value)
+11.popitem()
+12.clear()
+13.setdefault(key,value)
+14.copy()

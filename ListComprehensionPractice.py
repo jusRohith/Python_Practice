@@ -155,7 +155,31 @@ sentnce = "the quick brown fox jumps over the lazy dog"
 #    )
 # ? Question21 :
 # ? Input:
-# ? >>>matrix = [[1, 2], [3, 4], [5, 6], [7, 8]]
+matrix = [[1, 2], [3, 4], [5, 6], [7, 8]]
 # ? Desired output:
 # ? >>> [[1, 3, 5, 7], [2, 4, 6, 8]]
 # output = [[row[i] for row in matrix] for i in range(len(matrix[0]))]
+# ?Question 22: Flattening a 2D list into a 1D list:
+# matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# flattendList = [c for row in matrix for c in row]
+# print(flattendList)
+
+# ?Question 23: Generating a list of prime numbers up to a given limit:
+# limit = 20
+# primes = [
+#    num for num in range(2, limit) if all(num % i != 0 for i in range(2, num // 2 + 1))
+# ]
+# print(primes)  # Output: [2, 3, 5, 7, 11, 13, 17, 19]
+
+# ?Question 24: Flattening a nested list while ignoring non-integer elements
+# nested_list = [1, 2, [3, 4, [5, 6]], "seven", [8, [9]]]
+# flattened_list = [
+#    num for sublist in nested_list for num in sublist if isinstance(sublist, list)
+# ]
+# print(flattened_list)  # Output: [3, 4, 5, 6, 8, 9]
+# ?Question 25: Generating a list of all possible combinations of two lists:
+# list1 = [1, 2]
+# list2 = ["A", "B", "C"]
+# print([[list1[i], list2[j]] for i in range(len(list1)) for j in range(len(list2))])
+# Output:[[1, 'A'], [1, 'B'], [1, 'C'], [2, 'A'], [2, 'B'], [2, 'C']]
