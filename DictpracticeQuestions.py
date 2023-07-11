@@ -38,11 +38,14 @@
 # print(d)
 # ?Question4: Write a program that counts the frequency of each word in a given sentence and stores the results in a dictionary. Ignore case sensitivity and punctuation.
 # input = "I love to code, and I love to solve problems"
+#! Way1
 # output = {}
 # for word in input.upper().split():
 #    if word.isalpha():
 #        output[word] = output.get(word, 0) + 1
 # print(output)
+#! Way2
+# output = {ch: input.count(ch) for ch in input.lower() if not ch.isspace()}
 
 
 # ? Question5:Write a function that takes a list of dictionaries as input, where each dictionary represents a student's information (name, age, and grade). The function should return a dictionary with the average grade of each age group.
@@ -75,7 +78,7 @@
 # ? Question6:Write a function that takes a string as input and returns a dictionary containing the count of each vowel (a, e, i, o, u) in the string. Ignore case sensitivity.
 # input = "Want to be a DataEngineer".lower()
 #
-#
+#! Way1
 # def vowels_count(input: str) -> dict:
 #    vowels = ["a", "e", "i", "o", "u"]
 #    output = {}
@@ -86,6 +89,10 @@
 #
 #
 # print(vowels_count(input))
+#! Way2
+# vowels = "a", "e", "i", "o", "u"
+# output = {i: input.count(i) for i in input if i in vowels}
+# print(output)
 
 # ?Question7:Write a function that takes a dictionary as input, where the keys are student names and the values are their test scores. The function should return the name of the student with the highest score
 # input = {"John": 85, "Jane": 92, "Mike": 78, "Sarah": 95}
@@ -110,6 +117,11 @@
 #    if v == max(student_details.values()):
 #        return k
 # print(getHighScore(input))
+#! Way4
+# d = {v: k for k, v in input.items()}
+# print(d[max(list(d.keys()))])
+#! Way5 : List comprehension
+# print("".join(i for i in input if input[i] == max(input.values())))
 
 # ? Question8:Write a program that takes two dictionaries as input and merges them into a single dictionary. If there are any common keys, combine their values as a list.
 # Input:
@@ -181,23 +193,117 @@ input = "Want to be a DataEngineer".lower()
 # print(output)
 
 # ? Question12:Write a function that takes a list of dictionaries, where each dictionary represents a student's information (name, age, and subjects), and returns a dictionary where the keys are the unique subjects and the values are lists of students who are enrolled in each subject.
-sInfo = [
-    {"name": "John", "age": 20, "subjects": ["Math", "Physics"]},
-    {"name": "Jane", "age": 21, "subjects": ["Physics", "Chemistry"]},
-    {"name": "Mike", "age": 20, "subjects": ["Math", "Chemistry"]},
-    {"name": "Sarah", "age": 22, "subjects": ["Physics", "Biology"]},
-]
-# output={'Math': ['John', 'Mike'],'Physics': ['John', 'Jane', 'Sarah'],'Chemistry': ['Jane', 'Mike'],'Biology': ['Sarah']}
-stuName = []
-output = {}
-for element in sInfo:
-    #    subjects=[subject for subject in element["subjects"] if subject not in subjects]
-    for subject in element["subjects"]:
-        if subject not in output:
-            output = {subject: stuName.append(element["name"])}
-        # else:
-        #    output[subject] = [element["name"]]
-print(output)
+# students = [
+#    {"name": "John", "age": 20, "subjects": ["Math", "Physics"]},
+#    {"name": "Jane", "age": 21, "subjects": ["Physics", "Chemistry"]},
+#    {"name": "Mike", "age": 20, "subjects": ["Math", "Chemistry"]},
+#    {"name": "Sarah", "age": 22, "subjects": ["Physics", "Biology"]},
+# ]
+## output={'Math': ['John', 'Mike'],'Physics': ['John', 'Jane', 'Sarah'],'Chemistry': ['Jane', 'Mike'],'Biology': ['Sarah']}
+# output = {}
+# for student in students:
+#    for subject in student["subjects"]:
+#        if subject not in output:
+#            output[subject] = [student["name"]]
+#        else:
+#            output[subject].append(student["name"])
+# print(output)
+# ?Question13:Write a function that takes a dictionary as input, where the keys are words and the values are their frequencies. The function should return a list of words that have the maximum frequency.
+# input = {"apple": 5, "banana": 2, "cherry": 5, "date": 3, "elderberry": 5}
+# Output: ['apple', 'cherry', 'elderberry']
+# highFrq = max(input.values())
+# output = {k: v for k, v in input.items() if v == highFrq}
+# print(output)
+# ?Question14:  Write a function that takes a string as input and returns a dictionary containing the count of each unique character in the string, along with their positions (indices).
+# input = "hello"
+# Output: {'h': [0], 'e': [1], 'l': [2, 3], 'o': [4]}
+# output = {}
+# for i in range(len(input)):
+#    if input[i] not in output:
+#        output[input[i]] = [i]
+#    else:
+#        output[input[i]].append(i)
+# print(output)
+
+# ? Question15:Write a function that takes a list of dictionaries, where each dictionary represents a book's information (title, author, and publication year). The function should return a dictionary where the keys are the publication years and the values are lists of books published in each year. The books within each year should be sorted alphabetically by their titles.
+# input = [
+#    {"title": "Book1", "author": "Author1", "year": 2020},
+#    {"title": "Book2", "author": "Author2", "year": 2022},
+#    {"title": "Book3", "author": "Author3", "year": 2020},
+#    {"title": "Book4", "author": "Author4", "year": 2021},
+# ]
+# output={
+#    2020: [{'title': 'Book1', 'author': 'Author1', 'year': 2020},
+#               {'title': 'Book3', 'author': 'Author3', 'year': 2020}],
+#    2021: [{'title': 'Book4', 'author': 'Author4', 'year': 2021}],
+#    2022: [{'title': 'Book2', 'author': 'Author2', 'year': 2022}]
+# }
+# output = {}
+# for record in input:
+#    if record["year"] not in output:
+#        output[record["year"]] = [record]
+#    else:
+#        output[record["year"]].append(record)
+# print(output)
+# ?Question16:Write a function that takes a nested dictionary as input, where the keys are strings and the values are either strings or nested dictionaries. The function should flatten the nested dictionary into a single-level dictionary, with keys representing the nested structure using dot notation.
+input = {
+    "key1": "value1",
+    "key2": {
+        "nested_key1": "nested_value1",
+        "nested_key2": {"deep_key1": "deep_value1", "deep_key2": "deep_value2"},
+    },
+    "key3": "value3",
+}
+# output={
+#    'key1': 'value1',
+#    'key2.nested_key1': 'nested_value1',
+#    'key2.nested_key2.deep_key1': 'deep_value1',
+#    'key2.nested_key2.deep_key2': 'deep_value2',
+#    'key3': 'value3'
+# }
+#! Way1:
+# output = {}
+# for k, v in input.items():
+#    if type(v) != dict:
+#        output[k] = v
+#    else:
+#        for key, val in v.items():
+#            if type(val) != dict:
+#                output[k + "." + key] = val
+#            else:
+#                for k1, v1 in val.items():
+#                    output[k + "." + key + "." + k1] = v1
+# print(output)
 
 
-# output = dict.fromkeys(subjects, None)
+#! Way2: using functions
+# def flatten_dictionary(nested_dict, parent_key='', flattened_dict=None):
+#    if flattened_dict is None:
+#        flattened_dict = {}
+#
+#    for key, value in nested_dict.items():
+#        new_key = parent_key + '.' + key if parent_key else key
+#
+#        if isinstance(value, dict):
+#            flatten_dictionary(value, new_key, flattened_dict)
+#        else:
+#            flattened_dict[new_key] = value
+#
+#    return flattened_dict
+#
+#
+## Test the function with the given example
+# nested_dict = {
+#    'key1': 'value1',
+#    'key2': {
+#        'nested_key1': 'nested_value1',
+#        'nested_key2': {
+#            'deep_key1': 'deep_value1',
+#            'deep_key2': 'deep_value2'
+#        }
+#    },
+#    'key3': 'value3'
+# }
+#
+# result = flatten_dictionary(nested_dict)
+# print(result)

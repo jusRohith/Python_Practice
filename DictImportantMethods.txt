@@ -1,14 +1,43 @@
+Dict Methods:
+--------------
 1.len()
-2.get(key) -> returns null if corresponding key not available
+2.get(key) -> returns None if corresponding key not available
 3.get(key,value) -> if corresponding key not available in the dictionary then the value returns as default
-4.d1.update(d2)
+4.d1.update(d2)-->
+Syntax: dict.update([other])
+The update() method in Python is used to update a dictionary with the elements from another dictionary object or from an iterable of key/value pairs.
+The other parameter can be either a dictionary or an iterable object of key/value pairs. If the other parameter is a dictionary, the update() method will add all the key/value pairs from the other dictionary to the current dictionary. If the other parameter is an iterable object of key/value pairs, the update() method will add each key/value pair from the iterable to the current dictionary.
+Example :
+dict1 = {"a": 1, "b": 2}
+dict2 = {"c": 3, "d": 4}
+dict1.update(dict2)
+print(dict1)
+output:
+{'a': 1, 'b': 2, 'c': 3, 'd': 4}
+
 5.d.keys()
 6.d.values()
 7.d.items()
-8.d.fromKeys()
+8.d.fromKeys()--> 
+Syntax :dict.fromkeys(iterable,value)
+The fromkeys() method in Python creates a new dictionary from the given sequence of elements with a value provided by the user. It takes two parameters:
+
+seq: This is the list of values which would be used for dictionary keys preparation.
+value: This is optional, if provided then value would be set to this value. If not provided, then the default value is None.
+The fromkeys() method returns a new dictionary where the items of the sequences are considered as keys of the dictionary. In contrast, value parameters are considered values of each key of the dictionary.
+Example : 
+d = dict.fromkeys(["a", "b", "c"], "1")
+print(d)
+output:
+{'a': '1', 'b': '1', 'c': '1'}
+
+
+
 9.d.pop()
 10.d.pop(Key,Value)
 11.popitem()
 12.clear()
 13.setdefault(key,value)
 14.copy()
+
+List Methods:
