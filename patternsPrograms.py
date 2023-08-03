@@ -40,5 +40,43 @@ n = int(input("Enter a number : "))
 # ?     print((chr(65 + i) + " ") * n)
 
 # todo 5thQuestion: WAP right angle triangle pattern with * symbols
+#! Way1
 # ?for i in range(n):
 # ?    print("* " * (i + 1))
+#! Way2
+# ?n=int(input('Enter a number : '))
+# ?m=1
+# ?while m<=n:
+# ?    print(' '.join('*'*m))
+# ?    m=m+1
+
+# todo 6thQuestion : WAP inverted right angle triangle with * symbols
+# ? n=int(input('Enter a number : '))
+#! Way1
+# ? for i in range(n):
+# ?     print('* '*(n-i))
+#! Way2  
+# ? for i in range(n):
+# ?     print(' '.join('*'*(n-i)))
+#! Way3
+# ? m=n
+# ? while m>=1:
+# ?     print('* '*m)
+# ?     m=m-1
+
+# todo 7thQuestion : WAP to print Pyramid pattern with * symbols
+# ?n=int(input('Enter a number : '))
+# ?for i in range(n):
+# ?    print((' '*(n-i-1))+('* '*(i+1)))
+
+# todo 8thQuestion : WAP to print inverted Pyramid pattern with * symbols
+# ? n=int(input('Enter a number : '))
+# ? for i in range(n):
+# ?     print((' '*i)+('* '*(n-i)))
+
+# todo 9thQuestion : WAP to print diamond Pyramid pattern with * symbols
+# ? n=int(input('Enter a number : '))
+# ? for i in range(n):
+# ?     print((' '*(n-i-1))+('* '*(i+1)))
+# ? for i in range(n):
+# ?     print((' '*(i+1))+('* '*(n-i-1)))
